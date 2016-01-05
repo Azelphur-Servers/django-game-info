@@ -16,14 +16,15 @@ sidebar.
 
 Quick start
 -----------
-1. Add "game_info" to your INSTALLED_APPS setting like this::
+
+1. Install with `pip install django-game-info`
+
+2. Add "game_info" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
         'game_info',
     ]
-
-2. Install the dependencies with `pip -r requirements.txt`::
 
 3. Include the game_info URLconf in your project urls.py like this
 
