@@ -20,7 +20,7 @@ Quick start
 
     INSTALLED_APPS = [
         ...
-        'polls',
+        'game_info',
     ]
 
 2. Install the dependencies with `pip -r requirements.txt`::
