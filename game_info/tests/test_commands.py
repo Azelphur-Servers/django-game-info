@@ -3,7 +3,7 @@ from django.test import TestCase
 from game_info.models import Server
 
 
-class ServerTest(TestCase):
+class CommandTest(TestCase):
     def create_server(self, title="Test Server", host="example.org", port=27015):
         return Server.objects.create(title=title, host=host, port=port)
 
