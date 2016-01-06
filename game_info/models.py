@@ -40,6 +40,8 @@ class Server(models.Model):
         a2s = valve.source.a2s.ServerQuerier((self.host, self.port))
         try:
             info = a2s.get_info()
+            self.up = True
+            self.save()
         except valve.source.a2s.NoResponseError:
             self.up = False
             self.save()
@@ -65,6 +67,8 @@ class Server(models.Model):
         a2s = valve.source.a2s.ServerQuerier((self.host, self.port))
         try:
             players = a2s.get_players()
+            self.up = True
+            self.save()
         except valve.source.a2s.NoResponseError:
             self.up = False
             self.save()
@@ -73,18 +77,21 @@ class Server(models.Model):
         player_models = []
         for player in players['players']:
             player_models.append(Player(
+                server=self,
                 name=player['name'],
                 score=player['score'],
                 duration=player['duration']
             ))
         self.player_set.all().delete()
-        self.player_set = player_models
+        Player.objects.bulk_create(player_models)
         return True
 
     def update_rules(self):
         a2s = valve.source.a2s.ServerQuerier((self.host, self.port))
         try:
             rules = a2s.get_rules()
+            self.up = True
+            self.save()
         except valve.source.a2s.NoResponseError:
             self.up = False
             self.save()
@@ -93,11 +100,12 @@ class Server(models.Model):
         rule_models = []
         for cvar, value in rules['rules'].items():
             rule_models.append(Rule(
+                server=self,
                 cvar=cvar,
                 value=str(value)
             ))
         self.rule_set.all().delete()
-        self.rule_set = rule_models
+        Rule.objects.bulk_create(rule_models)
         return True
 
     def __unicode__(self):
