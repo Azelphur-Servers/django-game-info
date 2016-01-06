@@ -4,6 +4,9 @@ python:
 install:
   - "pip install -r requirements.txt"
   - "pip install coveralls"
-script: PYTHONPATH=. coverage run --source='.' `which django-admin` test --settings=test_settings
+script: 
+  - "PYTHONPATH=. coverage run --source='.' `which django-admin` test --settings=test_settings"
+  - "PYTHONPATH=. coverage run -p --source='.' ./setup.py test"
+  - "PYTHONPATH=. coverage combine"
 after_success:
   coveralls
