@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/Azelphur-Servers/django-game-info.svg?branch=master)](https://travis-ci.org/Azelphur-Servers/django-game-info)
+.. image:: https://travis-ci.org/Azelphur-Servers/django-game-info.svg?branch=master
+    :target: https://travis-ci.org/Azelphur-Servers/django-game-info
 
 =====
 django_game_info
