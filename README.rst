@@ -2,6 +2,9 @@
     :target: https://travis-ci.org/Azelphur-Servers/django-game-info
 .. image:: https://coveralls.io/repos/Azelphur-Servers/django-game-info/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/Azelphur-Servers/django-game-info?branch=master 
+.. image:: https://requires.io/github/Azelphur-Servers/django-game-info/requirements.svg?branch=master
+     :target: https://requires.io/github/Azelphur-Servers/django-game-info/requirements/?branch=master
+     :alt: Requirements Status
 =====
 django_game_info
 =====
