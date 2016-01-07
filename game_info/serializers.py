@@ -5,7 +5,7 @@ from .models import Server, Info, Rule, Player
 class InfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Info
-        exclude = ()
+        exclude = ("server", )
 
 
 class RuleSerializer(serializers.ModelSerializer):
@@ -27,4 +27,4 @@ class ServerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Server
-        exclude = ("id", "get_info", "get_players", "get_rules")
+        exclude = ("get_info", "get_players", "get_rules")
