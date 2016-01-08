@@ -1,12 +1,19 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 install:
-  - "pip install -r requirements.txt"
-  - "pip install coveralls"
-script: 
-  - "PYTHONPATH=. coverage run --source='.' `which django-admin` test --settings=test_settings"
-  - "PYTHONPATH=. coverage run -p --source='.' ./setup.py test"
-  - "PYTHONPATH=. coverage combine"
-after_success:
-  coveralls
+- pip install -r requirements.txt
+- pip install coveralls
+script:
+- PYTHONPATH=. coverage run --source='.' `which django-admin` test --settings=test_settings
+- PYTHONPATH=. coverage run -p --source='.' ./setup.py test
+- PYTHONPATH=. coverage combine
+after_success: coveralls
+deploy:
+  provider: pypi
+  user: Azelphur
+  password:
+    secure: CoTYuH/GcPK9ylQCgQHs+XSdWPfNvS/EfHW+F9N+Ug4wYCj7JVz1B+kjbWGXbyBGJE5L4A3/zNtmFLAyoGRT6ck1BqQo/jL35G7IV0kA2VVNMiMmLetLioDc3oudsMYU5fhxUQkfrkykxBH3BXn0Ca3+0ipP5QtfOfZnl4NiUQ9v28wHPY9/Jcp7l4KHuYbQz1lNJoGhXpKe4uUiJXz1BHyZeRynUa1jLeXKzR+iZ86IE/zSeObPnRw7bMVFw+02JvBHfPAVpDae9PhI6j1P/3hU30Vu6ZK2Xa1wk41GNrkmF+VkB3Q+TwtxnW46lLr5G7NkcXMDZcyLzib3ziCJQLDBdUf9omjoGCGDxhx8MSot7t54mi8E0W2RB9EcJ/Lq0PvRaUpAWNdvUHIk36DIxrFwYJ9byAEz+x7iU5z5Un+P/78LWgjtQfyPRRBYtIRF8HkQm9qltBoCctEWuhVlCDC9Tt+J7x/3QomwDuJkNQcYV69OZ4fCJly3u0MC1pYkATXB4wlVwgAgdn1mp1HikVc1UuBXJY/TRlaqgl+jbmdA/+/UIqzdMX9C0x4oKL3oxfoWsuH8kjQQHj3axwbT6vkkoJTkX74Hj2a/0VeYxQSAyVj4+JOiOSOxcxFpjIJdGKZ9UTtNR6uIiEpYcmoR9sZoesou0M6sjwcbuuE/Btw=
+  on:
+    tags: true
+    repo: Azelphur-Servers/django-game-info
