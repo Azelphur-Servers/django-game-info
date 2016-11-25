@@ -149,7 +149,7 @@ class Info(models.Model):
     platform = models.IntegerField(choices=PLATFORMS)
     password_protected = models.BooleanField()
     vac_enabled = models.BooleanField()
-    version = models.IntegerField()
+    version = models.CharField(max_length=64)
 
 
 class Player(models.Model):
